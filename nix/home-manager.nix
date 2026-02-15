@@ -1,4 +1,3 @@
-{ self }:
 { config, lib, pkgs, ... }:
 
 with lib;
@@ -6,6 +5,9 @@ with lib;
 let
   cfg = config.services.zeroclaw;
   cfgFile = "${config.xdg.configHome}/zeroclaw/config.toml";
+  
+  # Get the zeroclaw flake dynamically
+  zeroclawFlake = builtins.getFlake "github:btripoloni/zeroclaw-flake";
 in
 {
   options.services.zeroclaw = {
@@ -13,8 +15,8 @@ in
 
     package = mkOption {
       type = types.package;
-      default = self.packages.${pkgs.system}.default;
-      defaultText = literalExpression "inputs.zeroclaw.packages.\${pkgs.system}.default";
+      default = zeroclawFlake.packages.${pkgs.system}.default;
+      defaultText = literalExpression "zeroclaw.packages.\${pkgs.system}.default";
       description = "The ZeroClaw package to use.";
     };
 

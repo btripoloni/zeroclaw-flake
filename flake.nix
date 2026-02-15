@@ -124,8 +124,8 @@
     ) // {
       # Home-Manager module
       homeManagerModules = {
-        default = import ./nix/home-manager.nix self;
-        zeroclaw = import ./nix/home-manager.nix self;
+        default = import ./nix/home-manager.nix;
+        zeroclaw = import ./nix/home-manager.nix;
       };
     };
 }
