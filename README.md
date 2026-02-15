@@ -9,18 +9,18 @@ Nix flake for [ZeroClaw](https://github.com/theonlyhennygod/zeroclaw) - Zero ove
 ### Run directly
 
 ```bash
-nix run github:btripoloni/zeroclaw-nix
+nix run github:btripoloni/zeroclaw-flake
 
 # Or with a specific command
-nix run github:btripoloni/zeroclaw-nix -- agent -m "Hello"
-nix run github:btripoloni/zeroclaw-nix -- gateway
-nix run github:btripoloni/zeroclaw-nix -- status
+nix run github:btripoloni/zeroclaw-flake -- agent -m "Hello"
+nix run github:btripoloni/zeroclaw-flake -- gateway
+nix run github:btripoloni/zeroclaw-flake -- status
 ```
 
 ### Install to profile
 
 ```bash
-nix profile install github:btripoloni/zeroclaw-nix
+nix profile install github:btripoloni/zeroclaw-flake
 zeroclaw --help
 ```
 
@@ -40,7 +40,7 @@ Add this flake as an input to your home-manager configuration:
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager";
-    zeroclaw.url = "github:btripoloni/zeroclaw-nix";
+    zeroclaw.url = "github:btripoloni/zeroclaw-flake";
   };
 
   outputs = { self, nixpkgs, home-manager, zeroclaw }: {
